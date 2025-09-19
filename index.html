@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D.atelier - Vestidos Elegantes</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
 
+        /* Definición de la nueva paleta de colores */
         :root {
-            --primary-pink: #f7cac9; /* Un rosa suave y cálido */
-            --secondary-pink: #f7a8a7; /* Un rosa un poco más intenso */
-            --dark-pink: #e09392; /* Rosa oscuro para acentos */
-            --text-color: #333;
-            --light-text-color: #666;
+            --primary-light: #fbe4e5; /* Salmón muy claro para el fondo */
+            --primary-pink: #f7a8a7; /* El rosa del logo */
+            --dark-gray: #4a4a4a; /* Gris oscuro del logo para textos */
+            --light-gray: #888;
             --white-color: #fff;
             --shadow-light: rgba(0,0,0,0.08);
             --shadow-medium: rgba(0,0,0,0.15);
@@ -22,8 +22,8 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--primary-pink); /* Fondo suavemente rosado */
-            color: var(--text-color);
+            background-color: var(--primary-light); /* Nuevo color de fondo */
+            color: var(--dark-gray); /* Nuevo color de texto principal */
             text-align: center;
             line-height: 1.6;
         }
@@ -34,30 +34,38 @@
             box-shadow: 0 4px 10px var(--shadow-light);
             margin-bottom: 30px;
         }
+        /* Estilo para el logo */
+        .header .logo {
+            max-width: 150px; /* Tamaño máximo del logo */
+            height: auto; /* Mantiene la proporción */
+            margin-bottom: 15px; /* Espacio debajo del logo */
+            border-radius: 50%; /* Si quieres que el logo sea circular, si no, quita esta línea */
+            box-shadow: 0 4px 10px var(--shadow-light); /* Una pequeña sombra para destacarlo */
+        }
         .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2em; /* Tamaño grande para el nombre principal */
+            font-family: 'Great Vibes', cursive; /* Nueva fuente cursiva para el título */
+            font-size: 3.8em; /* Un poco más grande para destacar */
             margin: 0;
-            color: var(--dark-pink);
+            color: var(--primary-pink); /* Color del nombre ahora es el rosa del logo */
             letter-spacing: 1px;
             text-shadow: 1px 1px 2px var(--shadow-light);
         }
         .header .location {
-            font-family: 'Montserrat', sans-serif; /* Usamos Montserrat para la ubicación */
-            font-size: 1.2em; /* Tamaño un poco más pequeño que el título principal */
-            color: var(--light-text-color);
-            margin-top: 5px; /* Pequeño espacio entre el nombre y la ubicación */
-            font-weight: 400; /* Peso normal de la fuente */
-        }
-        .header p.tagline { /* Nuevo estilo para el eslogan/descripción */
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.2em;
-            color: var(--light-text-color);
-            margin-top: 15px; /* Más espacio después de la ubicación */
+            color: var(--light-gray);
+            margin-top: 5px;
+            font-weight: 400;
         }
-
-
+        .header p.tagline {
+            font-size: 1.2em;
+            color: var(--light-gray);
+            margin-top: 15px;
+        }
+        
+        /* Ajustes en los colores de las secciones */
         .contact-info {
-            background-color: var(--secondary-pink); /* Un rosa más vibrante para el contacto */
+            background-color: var(--primary-pink); /* Color del logo para el fondo del contacto */
             color: var(--white-color);
             padding: 25px;
             margin: 30px auto;
@@ -82,10 +90,9 @@
             transition: color 0.3s ease;
         }
         .contact-info a:hover {
-            color: var(--dark-pink); /* Cambia de color al pasar el mouse */
+            color: var(--dark-gray); /* Cambia al color del logo al pasar el mouse */
             text-decoration: underline;
         }
-
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -100,7 +107,7 @@
             box-shadow: 0 6px 15px var(--shadow-medium);
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left; /* Alinea el texto de la descripción a la izquierda */
+            text-align: left;
         }
         .photo-item:hover {
             transform: translateY(-8px) scale(1.02);
@@ -108,20 +115,20 @@
         }
         .photo-item img {
             width: 100%;
-            height: 400px; /* Altura fija para las imágenes */
-            object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+            height: 400px;
+            object-fit: cover;
             display: block;
         }
         .photo-description {
             padding: 15px;
             font-size: 0.95em;
-            color: var(--light-text-color);
+            color: var(--light-gray); /* Color de la descripción */
         }
         .photo-description h3 {
             font-family: 'Playfair Display', serif;
             margin-top: 0;
             margin-bottom: 8px;
-            color: var(--dark-pink);
+            color: var(--dark-gray); /* Color del título de la descripción */
             font-size: 1.4em;
         }
         .photo-description p {
@@ -132,22 +139,19 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2.5em;
+                font-size: 2.8em;
             }
-            .header .location {
-                font-size: 1em;
-            }
-            .header p.tagline {
+            .header .location, .header p.tagline {
                 font-size: 1em;
             }
             .contact-info h2 {
                 font-size: 2em;
             }
             .photo-gallery {
-                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+                grid-template-columns: 1fr;
             }
             .photo-item img {
-                height: 300px; /* Altura más pequeña en móviles */
+                height: 300px;
             }
         }
     </style>
@@ -155,6 +159,7 @@
 <body>
 
     <div class="header">
+        <img src="logo-datelier.png" alt="D.atelier Logo" class="logo">
         <h1>D.atelier</h1>
         <p class="location">25 de Mayo</p>
         <p class="tagline">Colección de Vestidos Elegantes para cada ocasión especial.</p>
@@ -163,8 +168,8 @@
     <div class="contact-info">
         <h2>Conéctate con nosotros</h2>
         <p>¿Interesada en un diseño personalizado o tienes alguna consulta?</p>
-        <p>Email: <a href="mailto:tuemail@dominio.com">tuemail@dominio.com</a></p>
-        <p>WhatsApp: <a href="https://wa.me/+5491112345678" target="_blank">+54 9 11 1234-5678</a></p>
+        <p>Teléfono: **2345 566441**</p>
+        <p>WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
         <p>Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
     </div>
 
