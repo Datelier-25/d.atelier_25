@@ -3,115 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.atelier - Vestidos Elegantes</title>
+    <title>D.atelier - Elegancia en cada Detalle</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap');
 
-        /* Definición de la nueva paleta de colores */
         :root {
-            --primary-light: #fbe4e5; /* Salmón muy claro para el fondo */
-            --primary-pink: #f7a8a7; /* El rosa del logo */
-            --dark-gray: #4a4a4a; /* Gris oscuro del logo para textos */
-            --light-gray: #888;
-            --white-color: #fff;
-            --shadow-light: rgba(0,0,0,0.08);
-            --shadow-medium: rgba(0,0,0,0.15);
+            --primary-black: #111;
+            --primary-white: #fff;
+            --accent-pink: #f7a8a7;
+            --text-color-light: #666;
+            --shadow: rgba(0,0,0,0.1);
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--primary-light); /* Nuevo color de fondo */
-            color: var(--dark-gray); /* Nuevo color de texto principal */
+            background-color: var(--primary-white);
+            color: var(--primary-black);
             text-align: center;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .header {
-            background-color: var(--white-color);
-            padding: 30px 20px;
-            box-shadow: 0 4px 10px var(--shadow-light);
-            margin-bottom: 30px;
+            padding: 40px 20px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        /* Estilo para el logo */
         .header .logo {
-            max-width: 150px; /* Tamaño máximo del logo */
-            height: auto; /* Mantiene la proporción */
-            margin-bottom: 15px; /* Espacio debajo del logo */
-            border-radius: 50%; /* Si quieres que el logo sea circular, si no, quita esta línea */
-            box-shadow: 0 4px 10px var(--shadow-light); /* Una pequeña sombra para destacarlo */
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 20px;
         }
         .header h1 {
-            font-family: 'Great Vibes', cursive; /* Nueva fuente cursiva para el título */
-            font-size: 3.8em; /* Un poco más grande para destacar */
+            font-family: 'Great Vibes', cursive;
+            font-size: 4em;
             margin: 0;
-            color: var(--primary-pink); /* Color del nombre ahora es el rosa del logo */
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px var(--shadow-light);
+            color: var(--accent-pink);
+            letter-spacing: 2px;
         }
         .header .location {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2em;
-            color: var(--light-gray);
+            font-size: 1.1em;
+            color: var(--text-color-light);
             margin-top: 5px;
-            font-weight: 400;
+            font-weight: 500;
         }
         .header p.tagline {
-            font-size: 1.2em;
-            color: var(--light-gray);
+            font-size: 1.1em;
+            color: var(--primary-black);
             margin-top: 15px;
+            max-width: 600px;
         }
-        
-        /* Ajustes en los colores de las secciones */
+
         .contact-info {
-            background-color: var(--primary-pink); /* Color del logo para el fondo del contacto */
-            color: var(--white-color);
-            padding: 25px;
-            margin: 30px auto;
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            padding: 30px;
+            margin: 50px auto;
             max-width: 800px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px var(--shadow-medium);
+            box-shadow: 0 4px 15px var(--shadow);
         }
         .contact-info h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
+            font-size: 2em;
             margin-bottom: 15px;
-            color: var(--white-color);
+            color: var(--primary-white);
         }
         .contact-info p {
             margin: 8px 0;
-            font-size: 1.1em;
+            font-size: 1em;
         }
         .contact-info a {
-            color: var(--white-color);
+            color: var(--primary-white);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
         .contact-info a:hover {
-            color: var(--dark-gray); /* Cambia al color del logo al pasar el mouse */
+            color: var(--accent-pink);
             text-decoration: underline;
+        }
+
+        .gallery-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
+            gap: 20px;
         }
         .photo-item {
-            background-color: var(--white-color);
-            border-radius: 10px;
-            box-shadow: 0 6px 15px var(--shadow-medium);
+            cursor: pointer;
+            position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: transform 0.3s ease;
         }
         .photo-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 10px 20px var(--shadow-medium);
+            transform: translateY(-5px);
         }
         .photo-item img {
             width: 100%;
@@ -120,39 +116,96 @@
             display: block;
         }
         .photo-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
             padding: 15px;
-            font-size: 0.95em;
-            color: var(--light-gray); /* Color de la descripción */
+            text-align: left;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-item:hover .photo-description {
+            transform: translateY(0);
         }
         .photo-description h3 {
-            font-family: 'Playfair Display', serif;
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: var(--dark-gray); /* Color del título de la descripción */
-            font-size: 1.4em;
+            font-size: 1.2em;
+            margin: 0 0 5px;
+            color: var(--primary-black);
         }
         .photo-description p {
-            margin-bottom: 5px;
-            line-height: 1.4;
+            font-size: 0.9em;
+            margin: 0;
+            color: var(--text-color-light);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.8em;
-            }
-            .header .location, .header p.tagline {
-                font-size: 1em;
-            }
-            .contact-info h2 {
-                font-size: 2em;
-            }
-            .photo-gallery {
-                grid-template-columns: 1fr;
-            }
-            .photo-item img {
-                height: 300px;
-            }
+        /* Estilos del modal/pop-up */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+            max-height: 90%;
+            background: var(--primary-white);
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--shadow);
+            animation-name: animatetop;
+            animation-duration: 0.4s;
+        }
+        @keyframes animatetop {
+            from { top: -300px; opacity: 0; }
+            to { top: 0; opacity: 1; }
+        }
+        .modal-img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .modal-description {
+            padding: 20px;
+            text-align: left;
+        }
+        .modal-description h3 {
+            margin: 0 0 10px;
+            color: var(--primary-black);
+            font-size: 1.5em;
+        }
+        .modal-description p {
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-color-light);
+        }
+        .close {
+            color: var(--primary-white);
+            font-size: 40px;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .close:hover,
+        .close:focus {
+            color: var(--accent-pink);
+            text-decoration: none;
         }
     </style>
 </head>
@@ -173,51 +226,75 @@
         <p>Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
     </div>
 
-    <div class="photo-gallery">
-        <div class="photo-item">
-            <img src="vestido.elina.jpg" alt="Vestido de Quinceañera Elegante Elina">
-            <div class="photo-description">
-                <h3>El Vestido de Tus Sueños Hecho Realidad</h3>
-                <p>En D.atelier, cada puntada cuenta una historia. Este diseño está pensado para la noche de tus 15, un momento mágico donde la elegancia y la fantasía se unen para crear tu vestido ideal. **Permítenos hacer realidad el sueño de tu vestido perfecto.**</p>
+    <div class="gallery-container">
+        <div class="photo-gallery">
+            
+            <div class="photo-item">
+                <img src="vestido.elina.jpg" data-title="El Vestido de Tus Sueños Hecho Realidad" data-description="En D.atelier, cada puntada cuenta una historia. Este diseño está pensado para la noche de tus 15, un momento mágico donde la elegancia y la fantasía se unen para crear tu vestido ideal. Permítenos hacer realidad el sueño de tu vestido perfecto." alt="Vestido de Quinceañera Elegante Elina">
             </div>
-        </div>
 
-        <div class="photo-item">
-            <img src="https://via.placeholder.com/600x400/FFC0CB/FFFFFF?text=Vestido+de+Noche+Clásico" alt="Vestido de Noche Clásico">
-            <div class="photo-description">
-                <h3>Elegancia Atemporal</h3>
-                <p>Vestido largo ideal para galas y casamientos. Tejido satinado con detalles en encaje.</p>
+            <div class="photo-item">
+                <img src="https://via.placeholder.com/600x400/FFC0CB/FFFFFF?text=Vestido+de+Noche+Clásico" data-title="Elegancia Atemporal" data-description="Vestido largo ideal para galas y casamientos. Tejido satinado con detalles en encaje." alt="Vestido de Noche Clásico">
             </div>
-        </div>
-        <div class="photo-item">
-            <img src="https://via.placeholder.com/600x400/E6E6FA/000000?text=Vestido+de+Cocktail+Moderno" alt="Vestido de Cocktail Moderno">
-            <div class="photo-description">
-                <h3>Estilo Urbano Chic</h3>
-                <p>Perfecto para eventos de día o noche. Corte moderno con volados y espalda descubierta.</p>
+            
+            <div class="photo-item">
+                <img src="https://via.placeholder.com/600x400/E6E6FA/000000?text=Vestido+de+Cocktail+Moderno" data-title="Estilo Urbano Chic" data-description="Perfecto para eventos de día o noche. Corte moderno con volados y espalda descubierta." alt="Vestido de Cocktail Moderno">
             </div>
-        </div>
-        <div class="photo-item">
-            <img src="https://via.placeholder.com/600x400/DDA0DD/FFFFFF?text=Vestido+de+Fiesta+Corto" alt="Vestido de Fiesta Corto">
-            <div class="photo-description">
-                <h3>Alegría y Movimiento</h3>
-                <p>Vestido corto con lentejuelas para un look festivo y juvenil. Ideal para cumpleaños.</p>
+            
+            <div class="photo-item">
+                <img src="https://via.placeholder.com/600x400/DDA0DD/FFFFFF?text=Vestido+de+Fiesta+Corto" data-title="Alegría y Movimiento" data-description="Vestido corto con lentejuelas para un look festivo y juvenil. Ideal para cumpleaños." alt="Vestido de Fiesta Corto">
             </div>
-        </div>
-        <div class="photo-item">
-            <img src="https://via.placeholder.com/600x400/FFB6C1/000000?text=Vestido+de+Graduación" alt="Vestido de Graduación">
-            <div class="photo-description">
-                <h3>Brillo de Graduación</h3>
-                <p>Diseño con transparencias y apliques, para destacar en tu noche especial.</p>
+            
+            <div class="photo-item">
+                <img src="https://via.placeholder.com/600x400/FFB6C1/000000?text=Vestido+de+Graduación" data-title="Brillo de Graduación" data-description="Diseño con transparencias y apliques, para destacar en tu noche especial." alt="Vestido de Graduación">
             </div>
-        </div>
-        <div class="photo-item">
-            <img src="https://via.placeholder.com/600x400/FF69B4/FFFFFF?text=Vestido+de+Novia+Civil" alt="Vestido de Novia Civil">
-            <div class="photo-description">
-                <h3>Sencillez Nupcial</h3>
-                <p>Vestido ideal para ceremonias civiles. Elegante, cómodo y lleno de encanto.</p>
+            
+            <div class="photo-item">
+                <img src="https://via.placeholder.com/600x400/FF69B4/FFFFFF?text=Vestido+de+Novia+Civil" data-title="Sencillez Nupcial" data-description="Vestido ideal para ceremonias civiles. Elegante, cómodo y lleno de encanto." alt="Vestido de Novia Civil">
             </div>
         </div>
     </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage">
+            <div class="modal-description">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeBtn = document.querySelector('.close');
+            const galleryItems = document.querySelectorAll('.photo-item img');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                    modalImg.src = item.src;
+                    modalTitle.textContent = item.dataset.title;
+                    modalDescription.textContent = item.dataset.description;
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
