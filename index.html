@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colección de Vestidos Elegantes</title>
+    <title>D.atelier - Vestidos Elegantes</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
 
@@ -36,17 +36,25 @@
         }
         .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2em;
+            font-size: 3.2em; /* Tamaño grande para el nombre principal */
             margin: 0;
             color: var(--dark-pink);
             letter-spacing: 1px;
             text-shadow: 1px 1px 2px var(--shadow-light);
         }
-        .header p {
+        .header .location {
+            font-family: 'Montserrat', sans-serif; /* Usamos Montserrat para la ubicación */
+            font-size: 1.2em; /* Tamaño un poco más pequeño que el título principal */
+            color: var(--light-text-color);
+            margin-top: 5px; /* Pequeño espacio entre el nombre y la ubicación */
+            font-weight: 400; /* Peso normal de la fuente */
+        }
+        .header p.tagline { /* Nuevo estilo para el eslogan/descripción */
             font-size: 1.2em;
             color: var(--light-text-color);
-            margin-top: 10px;
+            margin-top: 15px; /* Más espacio después de la ubicación */
         }
+
 
         .contact-info {
             background-color: var(--secondary-pink); /* Un rosa más vibrante para el contacto */
@@ -126,7 +134,10 @@
             .header h1 {
                 font-size: 2.5em;
             }
-            .header p {
+            .header .location {
+                font-size: 1em;
+            }
+            .header p.tagline {
                 font-size: 1em;
             }
             .contact-info h2 {
@@ -144,8 +155,9 @@
 <body>
 
     <div class="header">
-        <h1>Colección de Vestidos Elegantes</h1>
-        <p>Descubre diseños únicos para cumpleaños, casamientos, fiestas y ocasiones especiales.</p>
+        <h1>D.atelier</h1>
+        <p class="location">25 de Mayo</p>
+        <p class="tagline">Colección de Vestidos Elegantes para cada ocasión especial.</p>
     </div>
 
     <div class="contact-info">
