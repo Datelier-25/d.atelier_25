@@ -1,25 +1,142 @@
-
-    <meta la name="viewporjjkkkt" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D.atelier - Elegancia en cada Detalle</title>
-                font-family: 'Poppins', sans-serif;
+    <style>
+        /* Importación de fuentes de Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+        /* Variables CSS para una paleta de colores limpia */
+        :root {
+            --primary-black: #111;
+            --primary-white: #fff;
+            --primary-gray: #f8f8f8;
+            --accent-pink: #f7a8a7;
+            --text-color-light: #666;
+            --shadow: rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-white);
+            color: var(--primary-black);
+            text-align: center;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Encabezado --- */
+        .header {
+            padding: 40px 20px;
+            background-color: var(--primary-gray);
+            margin-bottom: 50px;
+            display: flex; /* Contenedor principal con Flexbox */
+            align-items: center; /* Centra los elementos verticalmente */
+            justify-content: center; /* Centra los elementos horizontalmente */
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+            gap: 20px; /* Espacio entre el logo y el texto */
+        }
+        
+        .header .main-logo-image {
+            max-width: 250px; /* Reducción de tamaño para un diseño más equilibrado */
+            height: auto;
+            display: block;
+        }
+        
+        .header-text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Alinea el texto a la izquierda dentro del contenedor */
+            text-align: left; /* Alinea el texto a la izquierda */
+        }
+
+        .header .location {
+            font-family: 'Poppins', sans-serif;
             font-size: 1.1em;
             color: var(--text-color-light);
-            margin-top: 5px;
+            margin: 0;
             font-weight: 400;
         }
+
         .header p.tagline {
             font-family: 'Libre Baskerville', serif;
             font-size: 1.2em;
             color: var(--primary-black);
-            margin-top: 20px;
+            margin-top: 5px; /* Pequeño espacio entre la ubicación y el tagline */
             max-width: 600px;
             font-style: italic;
         }
         
-        /* Ajuste para acercar la ubicación al título */
-        .location {
-            margin-top: 0.5em; /* Reducimos el espacio superior */
-                        position: absolute;
+        /* --- Información de Contacto --- */
+        .contact-info {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            padding: 30px;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        .contact-info h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2em;
+            margin-bottom: 15px;
+            color: var(--primary-white);
+        }
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 1em;
+        }
+        .contact-info a {
+            color: var(--primary-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: var(--accent-pink);
+            text-decoration: underline;
+        }
+        .contact-info .personal-message {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #dcdcdc;
+        }
+
+        /* --- Galería de Fotos --- */
+        .gallery-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .photo-item {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        .photo-item:hover {
+            transform: translateY(-5px);
+        }
+        .photo-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-description {
+            position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
@@ -39,7 +156,75 @@
             color: var(--primary-black);
         }
         .photo-description p {
-            font-size: 0.9em            transition: color 0.3s ease;
+            font-size: 0.9em;
+            margin: 0;
+            color: var(--text-color-light);
+        }
+
+        /* --- Estilos del Modal (pop-up) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--primary-white);
+            border-radius: 5px;
+            box-shadow: 0 0 20px var(--shadow);
+            animation-name: animatetop;
+            animation-duration: 0.4s;
+        }
+        @keyframes animatetop {
+            from { top: -300px; opacity: 0; }
+            to { top: 0; opacity: 1; }
+        }
+        .modal-img {
+            width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+        }
+        .modal-description {
+            padding: 20px;
+            text-align: left;
+            border-top: 1px solid #eee;
+            overflow-y: auto;
+            max-height: 15vh;
+        }
+        .modal-description h3 {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0 0 10px;
+            color: var(--primary-black);
+            font-size: 1.5em;
+        }
+        .modal-description p {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-color-light);
+        }
+        .close {
+            color: var(--primary-white);
+            font-size: 40px;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
         .close:hover,
         .close:focus {
@@ -49,8 +234,15 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.8em;
+            .header {
+                flex-direction: column;
+            }
+            .header .main-logo-image {
+                max-width: 200px;
+            }
+            .header-text-container {
+                align-items: center;
+                text-align: center;
             }
             .header .location, .header p.tagline {
                 font-size: 1em;
@@ -64,12 +256,8 @@
             .photo-item img {
                 height: 300px;
             }
-            .header-title-container {
-                flex-direction: column;
-                gap: 5px;
-            }
             .modal-description {
-                max-height: 20vh; /* Ajuste para móviles si es necesario */
+                max-height: 20vh;
             }
         }
     </style>
@@ -77,12 +265,11 @@
 <body>
 
     <div class="header">
-        <div class="header-title-container">
-            <img src="logo.jpg" alt="D.atelier Logo" class="logo">
-            <h1>D.atelier</h1>
+        <img src="1758255127850.jpg" alt="D.atelier Logo" class="main-logo-image">
+        <div class="header-text-container">
+            <p class="location">25 de Mayo</p>
+            <p class="tagline">Colección de Vestidos de Alta Costura para cada ocasión.</p>
         </div>
-        <p class="location">25 de Mayo</p>
-        <p class="tagline">Colección de Vestidos de Alta Costura para cada ocasión.</p>
     </div>
 
     <div class="contact-info">
@@ -166,5 +353,3 @@
 
 </body>
 </html>
-
-
