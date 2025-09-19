@@ -3,70 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio de Fotos</title>
+    <title>Colección de Vestidos Elegantes</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-pink: #f7cac9; /* Un rosa suave y cálido */
+            --secondary-pink: #f7a8a7; /* Un rosa un poco más intenso */
+            --dark-pink: #e09392; /* Rosa oscuro para acentos */
+            --text-color: #333;
+            --light-text-color: #666;
+            --white-color: #fff;
+            --shadow-light: rgba(0,0,0,0.08);
+            --shadow-medium: rgba(0,0,0,0.15);
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: var(--primary-pink); /* Fondo suavemente rosado */
+            color: var(--text-color);
             text-align: center;
+            line-height: 1.6;
         }
+
         .header {
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: var(--white-color);
+            padding: 30px 20px;
+            box-shadow: 0 4px 10px var(--shadow-light);
+            margin-bottom: 30px;
         }
         .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
             margin: 0;
-            color: #4a4a4a;
+            color: var(--dark-pink);
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px var(--shadow-light);
         }
+        .header p {
+            font-size: 1.2em;
+            color: var(--light-text-color);
+            margin-top: 10px;
+        }
+
         .contact-info {
-            padding: 20px;
-            background-color: #e2e2e2;
-            margin: 20px 0;
+            background-color: var(--secondary-pink); /* Un rosa más vibrante para el contacto */
+            color: var(--white-color);
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--shadow-medium);
+        }
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--white-color);
         }
         .contact-info p {
-            margin: 5px 0;
+            margin: 8px 0;
+            font-size: 1.1em;
         }
+        .contact-info a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: var(--dark-pink); /* Cambia de color al pasar el mouse */
+            text-decoration: underline;
+        }
+
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
+            gap: 25px;
             padding: 20px;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 50px auto;
         }
-        .photo-gallery img {
+        .photo-item {
+            background-color: var(--white-color);
+            border-radius: 10px;
+            box-shadow: 0 6px 15px var(--shadow-medium);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left; /* Alinea el texto de la descripción a la izquierda */
+        }
+        .photo-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px var(--shadow-medium);
+        }
+        .photo-item img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            height: 400px; /* Altura fija para las imágenes */
+            object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+            display: block;
         }
-        .photo-gallery img:hover {
-            transform: scale(1.05);
+        .photo-description {
+            padding: 15px;
+            font-size: 0.95em;
+            color: var(--light-text-color);
+        }
+        .photo-description h3 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--dark-pink);
+            font-size: 1.4em;
+        }
+        .photo-description p {
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .contact-info h2 {
+                font-size: 2em;
+            }
+            .photo-gallery {
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+            }
+            .photo-item img {
+                height: 300px; /* Altura más pequeña en móviles */
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>Mi Portafolio de Fotografía</h1>
+        <h1>Colección de Vestidos Elegantes</h1>
+        <p>Descubre diseños únicos para cumpleaños, casamientos, fiestas y ocasiones especiales.</p>
     </div>
 
     <div class="contact-info">
-        <h2>Contacto</h2>
-        <p>Email: <a href="mailto:tunombre@email.com">tunombre@email.com</a></p>
-        <p>Teléfono: +54 9 11 1234-5678</p>
+        <h2>Conéctate con nosotros</h2>
+        <p>¿Interesada en un diseño personalizado o tienes alguna consulta?</p>
+        <p>Email: <a href="mailto:tuemail@dominio.com">tuemail@dominio.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/+5491112345678" target="_blank">+54 9 11 1234-5678</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/tu_cuenta_instagram" target="_blank">@tu_cuenta_instagram</a></p>
     </div>
 
     <div class="photo-gallery">
-        <img src="https://via.placeholder.com/600x400?text=Foto+1" alt="Descripción de la foto 1">
-        <img src="https://via.placeholder.com/600x400?text=Foto+2" alt="Descripción de la foto 2">
-        <img src="https://via.placeholder.com/600x400?text=Foto+3" alt="Descripción de la foto 3">
-        <img src="https://via.placeholder.com/600x400?text=Foto+4" alt="Descripción de la foto 4">
+        <div class="photo-item">
+            <img src="https://via.placeholder.com/600x400/FFC0CB/FFFFFF?text=Vestido+de+Noche+Clásico" alt="Vestido de Noche Clásico">
+            <div class="photo-description">
+                <h3>Elegancia Atemporal</h3>
+                <p>Vestido largo ideal para galas y casamientos. Tejido satinado con detalles en encaje.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="https://via.placeholder.com/600x400/F08080/FFFFFF?text=Vestido+de+Quinceañera" alt="Vestido de Quinceañera">
+            <div class="photo-description">
+                <h3>Sueños de Quince</h3>
+                <p>Diseño exclusivo para celebrar tus 15 años. Falda voluminosa y brillo sutil.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="https://via.placeholder.com/600x400/E6E6FA/000000?text=Vestido+de+Cocktail+Moderno" alt="Vestido de Cocktail Moderno">
+            <div class="photo-description">
+                <h3>Estilo Urbano Chic</h3>
+                <p>Perfecto para eventos de día o noche. Corte moderno con volados y espalda descubierta.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="https://via.placeholder.com/600x400/DDA0DD/FFFFFF?text=Vestido+de+Fiesta+Corto" alt="Vestido de Fiesta Corto">
+            <div class="photo-description">
+                <h3>Alegría y Movimiento</h3>
+                <p>Vestido corto con lentejuelas para un look festivo y juvenil. Ideal para cumpleaños.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="https://via.placeholder.com/600x400/FFB6C1/000000?text=Vestido+de+Graduación" alt="Vestido de Graduación">
+            <div class="photo-description">
+                <h3>Brillo de Graduación</h3>
+                <p>Diseño con transparencias y apliques, para destacar en tu noche especial.</p>
+            </div>
+        </div>
+        <div class="photo-item">
+            <img src="https://via.placeholder.com/600x400/FF69B4/FFFFFF?text=Vestido+de+Novia+Civil" alt="Vestido de Novia Civil">
+            <div class="photo-description">
+                <h3>Sencillez Nupcial</h3>
+                <p>Vestido ideal para ceremonias civiles. Elegante, cómodo y lleno de encanto.</p>
+            </div>
+        </div>
     </div>
 
 </body>
