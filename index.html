@@ -37,7 +37,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column; /* Cambiado a columna para el nuevo diseño del logo */
             gap: 20px;
         }
         
@@ -47,11 +47,13 @@
             display: block;
         }
         
-        .header-text-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
+        /* Nuevo estilo para el título D.atelier */
+        .site-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5em; /* Tamaño grande para que destaque */
+            color: var(--primary-black);
+            margin: 0;
+            line-height: 1;
         }
 
         .header .location {
@@ -265,15 +267,12 @@
 <body>
 
     <div class="header">
-        <img src="1758255127850~2.jpg" alt="D.atelier Logo" class="main-logo-image">
-        <div class="header-text-container">
-            <p class="location">25 de Mayo</p>
-            <p class="tagline">Colección de Vestidos de Alta Costura para cada ocasión.</p>
-        </div>
+        <img src="1758500766837.jpg" alt="D.atelier Logo" class="main-logo-image">
     </div>
 
     <div class="contact-info">
-        <h2>Conéctate con nosotros</h2>
+        <h2 class="site-title">D.atelier</h2>
+        <p>Conéctate con nosotros</p>
         <p>¿Interesada en un diseño personalizado o tienes alguna consulta?</p>
         <p>Teléfono: 2345 566441</p>
         <p>WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
