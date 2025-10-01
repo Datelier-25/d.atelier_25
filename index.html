@@ -11,10 +11,10 @@
 
         /* Variables CSS para una paleta de colores limpia */
         :root {
-            --primary-black: #1a1a1a; /* Negro un poco más suave */
+            --primary-black: #1a1a1a;
             --primary-white: #fff;
-            --primary-gray: #f5f5f5; /* Fondo de sección elegante */
-            --dark-gray: #333; /* Color de texto para contraste */
+            --primary-gray: #f5f5f5;
+            --dark-gray: #333;
             --accent-pink: #d89695; /* Rosa palo elegante */
             --text-color-light: #666;
             --shadow: rgba(0,0,0,0.08);
@@ -32,7 +32,7 @@
             overflow-x: hidden;
         }
 
-        /* --- Encabezado y Logo Profesional (sin cambios) --- */
+        /* --- Encabezado y Logo Profesional --- */
         .header {
             padding: 20px 40px;
             background-color: var(--primary-gray);
@@ -74,7 +74,7 @@
             font-weight: 400;
         }
         
-        /* Título de la sección (sin cambios) */
+        /* Título de la sección */
         .section-title {
             font-family: 'Libre Baskerville', serif;
             font-size: 2.5em;
@@ -98,12 +98,11 @@
             background-color: var(--primary-black);
             color: var(--primary-white);
             padding: 40px;
-            /* MODIFICACIÓN 1: Centrado automático usando 'margin: 50px auto;' */
             margin: 50px auto; 
             max-width: 700px;
             border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            text-align: left;
+            text-align: center; /* Centra títulos y el primer <p> */
         }
         .contact-info h2 {
             font-family: 'Libre Baskerville', serif;
@@ -112,13 +111,24 @@
             color: var(--accent-pink);
             text-align: center;
         }
-        .contact-info p {
-            margin: 10px 0;
-            font-size: 1em;
-            display: flex;
+        
+        /* ESTILO CORREGIDO PARA CENTRAR TELEFONO, WA, INSTAGRAM */
+        .contact-item {
+            display: flex; /* Para poner ícono y texto en línea */
             align-items: center;
+            justify-content: center; /* CENTRA EL ÍTEM COMPLETO */
             gap: 10px;
+            margin: 10px auto; /* Centrar el bloque contact-item */
+            font-size: 1em;
+            max-width: 350px; /* Limitar ancho para que el centrado sea visible */
         }
+        
+        /* Aseguramos que el <p> genérico no tenga flex */
+        .contact-info p {
+             margin: 10px auto;
+             font-size: 1em;
+        }
+
         .contact-info a {
             color: var(--primary-white);
             text-decoration: none;
@@ -135,19 +145,19 @@
             text-align: center;
         }
         
-        /* MODIFICACIÓN 2: Destacar el mensaje de Denise */
+        /* Estilo para destacar el mensaje de Denise */
         .contact-info .personal-message {
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid var(--dark-gray);
-            font-size: 1.15em; /* Ligeramente más grande */
+            font-size: 1.15em;
             line-height: 1.5;
-            color: var(--accent-pink); /* Usamos el color de acento rosa */
-            font-weight: 700; /* Negrita para mayor impacto */
+            color: var(--accent-pink);
+            font-weight: 700;
             text-align: center;
-            text-shadow: 0 0 5px rgba(216, 150, 149, 0.3); /* Sombra suave para destacar */
+            text-shadow: 0 0 5px rgba(216, 150, 149, 0.3);
         }
         /* Fin de las modificaciones */
 
@@ -332,6 +342,9 @@
                 margin: 30px auto;
                 padding: 30px;
             }
+            .contact-item {
+                max-width: 100%;
+            }
             .photo-gallery {
                 grid-template-columns: 1fr;
             }
@@ -344,24 +357,26 @@
 <body>
 
     <header class="header">
-        <img src="Logo_recortado.png" alt="D.atelier Logo" class="main-logo-image">
+        <img src="logo_recortado.png" alt="D.atelier Logo" class="main-logo-image">
         <div class="logo-text-container">
             <h1 class="site-title">D.atelier</h1>
-            <p class="tagline">Elegancia, Exclusividad y Diseño de Alta Costura</p>
+            <p class="tagline">Elegancia, exclusividad y diseño de alta costura</p>
         </div>
     </header>
 
     <main>
         <section class="contact-info">
-            <h2>Contactanos para Diseñar Tu Sueño</h2>
+            <h2>Contactanos para diseñar tu sueño</h2>
             <p>¿Tenés alguna consulta o estás interesada en un diseño personalizado?</p>
+            
             <div style="margin-top: 20px;">
-                <p><i class="fas fa-phone-alt"></i> Teléfono: 2345 566441</p>
-                <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
-                <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
+                <p class="contact-item"><i class="fas fa-phone-alt"></i> Teléfono: 2345 566441</p>
+                <p class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
+                <p class="contact-item"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
             </div>
+            
             <p class="personal-message">
-                <i class="fas fa-heart" style="margin-right: 8px;"></i> ¡Hola! Soy **Denise**, fundadora de D.atelier. Espero tu mensaje para que juntas trabajemos en la creación de tu vestido soñado, garantizando un ajuste perfecto y un estilo inigualable.
+                <i class="fas fa-heart" style="margin-right: 8px;"></i> ¡Hola! Soy Denise, fundadora de D.atelier. Espero tu mensaje para que juntas trabajemos en la creación de tu vestido soñado.
             </p>
         </section>
 
