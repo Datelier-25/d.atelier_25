@@ -32,7 +32,7 @@
             overflow-x: hidden;
         }
 
-        /* --- Encabezado y Logo Profesional --- */
+        /* --- Encabezado y Logo Profesional (sin cambios) --- */
         .header {
             padding: 20px 40px;
             background-color: var(--primary-gray);
@@ -41,11 +41,11 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            border-bottom: 2px solid var(--accent-pink); /* Línea divisoria elegante */
+            border-bottom: 2px solid var(--accent-pink);
         }
         
         .header .main-logo-image {
-            max-width: 180px; /* Reducido para un look más moderno */
+            max-width: 180px;
             height: auto;
             display: block;
             margin-bottom: 10px;
@@ -57,7 +57,7 @@
 
         .site-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 3.8em; /* Tamaño grande y cursiva para lujo */
+            font-size: 3.8em;
             color: var(--primary-black);
             margin: 0;
             line-height: 1;
@@ -74,7 +74,7 @@
             font-weight: 400;
         }
         
-        /* Título de la sección */
+        /* Título de la sección (sin cambios) */
         .section-title {
             font-family: 'Libre Baskerville', serif;
             font-size: 2.5em;
@@ -98,9 +98,10 @@
             background-color: var(--primary-black);
             color: var(--primary-white);
             padding: 40px;
-            margin: 50px auto;
-            max-width: 700px; /* Tamaño más contenido */
-            border-radius: 8px; /* Bordes suaves */
+            /* MODIFICACIÓN 1: Centrado automático usando 'margin: 50px auto;' */
+            margin: 50px auto; 
+            max-width: 700px;
+            border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             text-align: left;
         }
@@ -108,7 +109,7 @@
             font-family: 'Libre Baskerville', serif;
             font-size: 1.8em;
             margin-bottom: 20px;
-            color: var(--accent-pink); /* Destacamos el título */
+            color: var(--accent-pink);
             text-align: center;
         }
         .contact-info p {
@@ -128,33 +129,39 @@
             color: var(--accent-pink);
             text-decoration: underline;
         }
-        .contact-info i { /* Íconos */
+        .contact-info i {
             color: var(--accent-pink);
             width: 20px;
             text-align: center;
         }
+        
+        /* MODIFICACIÓN 2: Destacar el mensaje de Denise */
         .contact-info .personal-message {
             font-family: 'Libre Baskerville', serif;
             font-style: italic;
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid var(--dark-gray);
-            font-size: 1em;
+            font-size: 1.15em; /* Ligeramente más grande */
             line-height: 1.5;
-            color: #ccc;
+            color: var(--accent-pink); /* Usamos el color de acento rosa */
+            font-weight: 700; /* Negrita para mayor impacto */
             text-align: center;
+            text-shadow: 0 0 5px rgba(216, 150, 149, 0.3); /* Sombra suave para destacar */
         }
+        /* Fin de las modificaciones */
 
-        /* --- Galería de Fotos --- */
+
+        /* --- Galería de Fotos (sin cambios) --- */
         .gallery-container {
             padding: 20px;
             max-width: 1200px;
-            margin: 0 auto 80px; /* Margen inferior para el footer */
+            margin: 0 auto 80px;
         }
         .photo-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px; /* Mayor espacio para elegancia */
+            gap: 30px;
         }
         .photo-item {
             cursor: pointer;
@@ -176,7 +183,7 @@
             transition: filter var(--transition-speed);
         }
         .photo-item:hover img {
-            filter: brightness(0.9); /* Oscurece un poco al pasar el mouse */
+            filter: brightness(0.9);
         }
         .photo-description {
             position: absolute;
@@ -187,7 +194,7 @@
             padding: 15px 20px;
             text-align: left;
             transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de movimiento más suave */
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .photo-item:hover .photo-description {
             transform: translateY(0);
@@ -204,7 +211,7 @@
             color: var(--text-color-light);
         }
 
-        /* --- Estilos del Modal (pop-up) --- */
+        /* --- Estilos del Modal (pop-up) (sin cambios) --- */
         .modal {
             display: none;
             position: fixed;
@@ -213,14 +220,14 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Fondo más oscuro para destacar la imagen */
+            background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
         }
         .modal-content {
             position: relative;
             display: flex;
-            flex-direction: row; /* Diseño de contenido lado a lado en escritorio */
+            flex-direction: row;
             max-width: 90%;
             max-height: 90%;
             background: var(--primary-white);
@@ -235,12 +242,12 @@
             to { transform: scale(1); opacity: 1; }
         }
         .modal-img {
-            max-width: 60%; /* Imagen a la izquierda */
+            max-width: 60%;
             height: auto;
             object-fit: contain;
         }
         .modal-description {
-            max-width: 40%; /* Descripción a la derecha */
+            max-width: 40%;
             padding: 30px;
             text-align: left;
             overflow-y: auto;
@@ -270,7 +277,7 @@
             cursor: pointer;
             transition: color var(--transition-speed);
             text-shadow: 0 0 10px var(--primary-black);
-            z-index: 1001; /* Aseguramos que esté por encima de todo */
+            z-index: 1001;
         }
         .close:hover,
         .close:focus {
@@ -278,7 +285,7 @@
             text-decoration: none;
         }
         
-        /* --- Footer --- */
+        /* --- Footer (sin cambios) --- */
         .footer {
             background-color: var(--primary-gray);
             color: var(--text-color-light);
@@ -298,7 +305,7 @@
             color: var(--accent-pink);
         }
 
-        /* Responsive Design */
+        /* Responsive Design (sin cambios) */
         @media (max-width: 900px) {
             .modal-content {
                 flex-direction: column;
@@ -347,13 +354,15 @@
     <main>
         <section class="contact-info">
             <h2>Contactanos para Diseñar Tu Sueño</h2>
-            <p>¿Tenes alguna consulta o estás interesada en un diseño personalizado?</p>
+            <p>¿Tenés alguna consulta o estás interesada en un diseño personalizado?</p>
             <div style="margin-top: 20px;">
                 <p><i class="fas fa-phone-alt"></i> Teléfono: 2345 566441</p>
                 <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
                 <p><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
             </div>
-            <p class="personal-message">¡Hola! Soy Denise, fundadora de D.atelier. Espero tu mensaje para que juntas trabajemos en la creación de tu vestido soñado, garantizando un ajuste perfecto y un estilo inigualable.</p>
+            <p class="personal-message">
+                <i class="fas fa-heart" style="margin-right: 8px;"></i> ¡Hola! Soy **Denise**, fundadora de D.atelier. Espero tu mensaje para que juntas trabajemos en la creación de tu vestido soñado, garantizando un ajuste perfecto y un estilo inigualable.
+            </p>
         </section>
 
         <h2 class="section-title">Nuestra Galería de Diseños</h2>
