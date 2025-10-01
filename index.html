@@ -1,45 +1,142 @@
-/* --- Encabezado y Logo Profesional (MODIFICADO) --- */
-.header {
-    padding: 20px 40px;
-    background-color: var(--primary-gray);
-    margin-bottom: 50px;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.atelier - Elegancia en cada Detalle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* [EL CSS VA AQUÍ, VER SECCIÓN SIGUIENTE] */
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="logo_recortado.png" alt="D.atelier Logo" class="main-logo-image">
+        <div class="logo-text-container">
+            <h1 class="site-title">D.atelier</h1>
+            <p class="tagline">Elegancia, exclusividad y diseño de alta costura</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-info">
+            <h2>Contactanos para diseñar tu sueño</h2>
+            <p>¿Tenés alguna consulta o estás interesada en un diseño personalizado?</p>
+            
+            <div style="margin-top: 20px;">
+                <p class="contact-item"><i class="fas fa-phone-alt"></i> Teléfono: 2345 566441</p>
+                <p class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
+                <p class="contact-item"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
+            </div>
+            
+            <p class="personal-message">
+                <i class="fas fa-heart" style="margin-right: 8px;"></i> ¡Hola, Soy Denise! Espero tu mensaje para que juntas trabajemos en la creación de tu vestido soñado.
+            </p>
+        </section>
+
+        <h2 class="section-title">Nuestra Galería de Diseños</h2>
+
+        <div class="gallery-container">
+            <div class="photo-gallery">
+                
+                <div class="photo-item">
+                    <img src="vestido.elina.jpg" data-title="El Vestido de Tus Sueños Hecho Realidad" data-description="En D.atelier, cada puntada cuenta una historia. Este diseño está pensado para la noche de tus 15, un momento mágico donde la elegancia y la fantasía se unen para crear tu vestido ideal. Permítenos hacer realidad el sueño de tu vestido perfecto." alt="Vestido de Quinceañera Elegante Elina">
+                    <div class="photo-description">
+                        <h3>Vestido de Quince</h3>
+                        <p>Elegancia y fantasía en un diseño único.</p>
+                    </div>
+                </div>
+
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/FFC0CB/000000?text=Vestido+de+Noche+Clásico" data-title="Elegancia Atemporal" data-description="Vestido largo ideal para galas y casamientos. Confeccionado con tejido satinado de alta calidad y detalles sutiles en encaje francés para un toque clásico y distinguido." alt="Vestido de Noche Clásico">
+                    <div class="photo-description">
+                        <h3>Clásico de Gala</h3>
+                        <p>Diseño largo con tejido satinado y encaje.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/E6E6FA/000000?text=Vestido+de+Cocktail+Moderno" data-title="Estilo Urbano Chic" data-description="Perfecto para eventos de día o noche. Presenta un corte moderno con volados dinámicos, creando movimiento y una espalda descubierta que añade un detalle sensual y sofisticado." alt="Vestido de Cocktail Moderno">
+                    <div class="photo-description">
+                        <h3>Cocktail Moderno</h3>
+                        <p>Volados, espalda descubierta y estilo chic.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/DDA0DD/FFFFFF?text=Vestido+de+Fiesta+Corto" data-title="Alegría y Movimiento" data-description="Un vestido corto, vibrante y juvenil, completamente cubierto de lentejuelas. Ideal para cumpleaños, despedidas o cualquier celebración que exija un look festivo y lleno de brillo." alt="Vestido de Fiesta Corto">
+                    <div class="photo-description">
+                        <h3>Fiesta con Lentejuelas</h3>
+                        <p>Look festivo y juvenil con brillo garantizado.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/FFB6C1/000000?text=Vestido+de+Graduación" data-title="Brillo de Graduación" data-description="Diseño audaz con transparencias estratégicas y delicados apliques de pedrería. El vestido perfecto para destacar en tu noche especial de graduación." alt="Vestido de Graduación">
+                    <div class="photo-description">
+                        <h3>Diseño para Graduación</h3>
+                        <p>Transparencias y apliques para una noche única.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/FF69B4/FFFFFF?text=Vestido+de+Novia+Civil" data-title="Sencillez Nupcial" data-description="Vestido ideal para ceremonias civiles. Su diseño minimalista es elegante, cómodo y está lleno de encanto, perfecto para la novia que busca sofisticación sin excesos." alt="Vestido de Novia Civil">
+                    <div class="photo-description">
+                        <h3>Novia Civil Minimalista</h3>
+                        <p>Elegante, cómodo y lleno de encanto nupcial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage">
+            <div class="modal-description">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
     
-    /* CAMBIOS CLAVE PARA ALINEAR A LA IZQUIERDA */
-    display: flex;
-    flex-direction: row; /* Alineación horizontal */
-    justify-content: flex-start; /* Logo a la izquierda */
-    align-items: center; /* Centrar verticalmente logo y texto */
-    
-    border-bottom: 2px solid var(--accent-pink);
-    gap: 20px; /* Espacio entre el logo y el texto del título */
-}
+    <footer class="footer">
+        <p>&copy; 2025 D.atelier. Todos los derechos reservados.</p>
+        <p>Alta Costura y Diseños a Medida.</p>
+        <p>Seguinos en <a href="https://www.instagram.com/d.atelier_25" target="_blank">Instagram</a></p>
+    </footer>
 
-.header .main-logo-image {
-    max-width: 150px; /* Un poco más pequeño para una alineación lateral */
-    height: auto;
-    display: block;
-    margin-bottom: 0; /* Eliminar margen inferior */
-}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeBtn = document.querySelector('.close');
+            const galleryItems = document.querySelectorAll('.photo-item img');
 
-.logo-text-container {
-    text-align: left; /* Alinear el texto de la marca a la izquierda */
-}
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                    modalImg.src = item.src;
+                    modalTitle.textContent = item.dataset.title;
+                    modalDescription.textContent = item.dataset.description;
+                });
+            });
 
-.site-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.2em; /* Tamaño sutilmente reducido */
-    color: var(--primary-black);
-    margin: 0;
-    line-height: 1;
-    font-weight: 400;
-}
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
 
-.header p.tagline {
-    /* Mantenemos el estilo, pero en esta ubicación se ve mejor */
-    font-family: 'Libre Baskerville', serif;
-    font-size: 0.9em;
-    color: var(--text-color-light);
-    margin-top: 5px;
-    font-style: italic;
-    font-weight: 400;
-}
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
