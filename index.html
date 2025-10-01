@@ -1,511 +1,487 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.atelier - Elegancia en cada Detalle</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-/* ---------------------------------------------------------------------- */
-/* ----------------- INICIO DEL CSS MODIFICADO -------------------------- */
-/* ---------------------------------------------------------------------- */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.atelier - Elegancia en cada Detalle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Importación de fuentes de Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap');
 
-        /* Importación de fuentes de Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap');
-
-        /* Variables CSS para una paleta de colores limpia */
-        :root {
-            --primary-black: #1a1a1a;
-            --primary-white: #fff;
-            --primary-gray: #f5f5f5;
-            --dark-gray: #333;
-            --accent-pink: #d89695; /* Rosa palo elegante */
-            --text-color-light: #666;
-            --shadow: rgba(0,0,0,0.08);
-            --transition-speed: 0.3s ease;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--primary-white);
-            color: var(--dark-gray);
-            text-align: center;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Encabezado (Contenedor Principal) --- */
-        .header {
-            padding: 20px 40px;
-            background-color: var(--primary-gray);
-            margin-bottom: 50px;
-            
-            /* CAMBIOS CLAVE PARA CENTRAR EL GRUPO DE LOGO + TEXTO */
-            display: flex; 
-            align-items: center; 
-            justify-content: center; /* CENTRA EL CONTENIDO DE LA CABECERA */
-            flex-direction: column; /* Para permitir el centrado horizontal del contenido */
-            border-bottom: 2px solid var(--accent-pink);
-        }
-        
-        /* NUEVO CONTENEDOR: Logra la alineación horizontal de Logo y Texto */
-        .logo-brand-container {
-            display: flex; /* Mantiene logo y texto en línea */
-            align-items: center; /* Centra verticalmente logo y texto */
-            gap: 20px; /* Espacio entre el logo y el texto */
-            padding: 10px 0;
+        /* Variables CSS para una paleta de colores limpia */
+        :root {
+            --primary-black: #1a1a1a;
+            --primary-white: #fff;
+            --primary-gray: #f5f5f5;
+            --dark-gray: #333;
+            --accent-pink: #d89695; /* Rosa palo elegante */
+            --text-color-light: #666;
+            --shadow: rgba(0,0,0,0.08);
+            --transition-speed: 0.3s ease;
         }
 
-        .header .main-logo-image {
-            max-width: 150px; /* Tamaño profesional para diseño lateral */
-            height: auto;
-            display: block;
-            margin-bottom: 0; /* Eliminar el margen inferior que tenía */
-        }
-        
-        .logo-text-container {
-            text-align: left; /* Alinea el texto de la marca a la izquierda del logo */
-        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--primary-white);
+            color: var(--dark-gray);
+            text-align: center;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        .site-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.2em; /* Ajustado para mejor proporción con el logo lateral */
-            color: var(--primary-black);
-            margin: 0;
-            line-height: 1;
-            font-weight: 400;
-        }
+        /* --- Encabezado y Logo Profesional --- */
+        .header {
+            padding: 20px 40px;
+            background-color: var(--primary-gray);
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-bottom: 2px solid var(--accent-pink);
+        }
+        
+        .header .main-logo-image {
+            max-width: 180px;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .logo-text-container {
+            text-align: center;
+        }
 
-        .header p.tagline {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 0.9em;
-            color: var(--text-color-light);
-            margin-top: 5px;
-            max-width: 600px;
-            font-style: italic;
-            font-weight: 400;
-        }
-        
-        /* Título de la sección */
-        .section-title {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 2.5em;
-            color: var(--primary-black);
-            margin-top: 50px;
-            margin-bottom: 30px;
-            position: relative;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 2px;
-            background-color: var(--accent-pink);
-            margin: 10px auto 0;
-        }
+        .site-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8em;
+            color: var(--primary-black);
+            margin: 0;
+            line-height: 1;
+            font-weight: 400;
+        }
 
-        /* --- Información de Contacto (Bloque Oscuro) --- */
-        .contact-info {
-            background-color: var(--primary-black);
-            color: var(--primary-white);
-            padding: 40px;
-            margin: 50px auto; 
-            max-width: 700px;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            text-align: center; 
-        }
-        .contact-info h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: var(--accent-pink);
-            text-align: center;
-        }
-        
-        /* Centrado de cada ítem de contacto */
-        .contact-item {
-            display: flex; 
-            align-items: center;
-            justify-content: center; 
-            gap: 10px;
-            margin: 10px auto; 
-            font-size: 1em;
-            max-width: 350px; 
-        }
-        
-        /* Aseguramos que el <p> genérico no tenga flex */
-        .contact-info p {
-             margin: 10px auto;
-             font-size: 1em;
-        }
+        .header p.tagline {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1em;
+            color: var(--text-color-light);
+            margin-top: 5px;
+            max-width: 600px;
+            font-style: italic;
+            font-weight: 400;
+        }
+        
+        /* Título de la sección */
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5em;
+            color: var(--primary-black);
+            margin-top: 50px;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent-pink);
+            margin: 10px auto 0;
+        }
 
-        .contact-info a {
-            color: var(--primary-white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color var(--transition-speed);
-        }
-        .contact-info a:hover {
-            color: var(--accent-pink);
-            text-decoration: underline;
-        }
-        .contact-info i {
-            color: var(--accent-pink);
-            width: 20px;
-            text-align: center;
-        }
-        
-        /* Estilo para destacar el mensaje de Denise */
-        .contact-info .personal-message {
-            font-family: 'Libre Baskerville', serif;
-            font-style: italic;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--dark-gray);
-            font-size: 1.15em;
-            line-height: 1.5;
-            color: var(--accent-pink);
-            font-weight: 700;
-            text-align: center;
-            text-shadow: 0 0 5px rgba(216, 150, 149, 0.3);
-        }
-        /* Fin de las modificaciones */
+        /* --- Información de Contacto (Bloque Oscuro) --- */
+        .contact-info {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            padding: 40px;
+            margin: 50px auto; 
+            max-width: 700px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center; /* Centra títulos y el primer <p> */
+        }
+        .contact-info h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: var(--accent-pink);
+            text-align: center;
+        }
+        
+        /* ESTILO CORREGIDO PARA CENTRAR TELEFONO, WA, INSTAGRAM */
+        .contact-item {
+            display: flex; /* Para poner ícono y texto en línea */
+            align-items: center;
+            justify-content: center; /* CENTRA EL ÍTEM COMPLETO */
+            gap: 10px;
+            margin: 10px auto; /* Centrar el bloque contact-item */
+            font-size: 1em;
+            max-width: 350px; /* Limitar ancho para que el centrado sea visible */
+        }
+        
+        /* Aseguramos que el <p> genérico no tenga flex */
+        .contact-info p {
+             margin: 10px auto;
+             font-size: 1em;
+        }
+
+        .contact-info a {
+            color: var(--primary-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-speed);
+        }
+        .contact-info a:hover {
+            color: var(--accent-pink);
+            text-decoration: underline;
+        }
+        .contact-info i {
+            color: var(--accent-pink);
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Estilo para destacar el mensaje de Denise */
+        .contact-info .personal-message {
+            font-family: 'Libre Baskerville', serif;
+            font-style: italic;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--dark-gray);
+            font-size: 1.15em;
+            line-height: 1.5;
+            color: var(--accent-pink);
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(216, 150, 149, 0.3);
+        }
+        /* Fin de las modificaciones */
 
 
-        /* --- Galería de Fotos (sin cambios) --- */
-        .gallery-container {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto 80px;
-        }
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .photo-item {
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 6px 15px var(--shadow);
-            border-radius: 5px;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-        .photo-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        .photo-item img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-            transition: filter var(--transition-speed);
-        }
-        .photo-item:hover img {
-            filter: brightness(0.9);
-        }
-        .photo-description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.98);
-            padding: 15px 20px;
-            text-align: left;
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .photo-item:hover .photo-description {
-            transform: translateY(0);
-        }
-        .photo-description h3 {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.1em;
-            margin: 0 0 5px;
-            color: var(--primary-black);
-        }
-        .photo-description p {
-            font-size: 0.85em;
-            margin: 0;
-            color: var(--text-color-light);
-        }
+        /* --- Galería de Fotos (sin cambios) --- */
+        .gallery-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .photo-item {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 15px var(--shadow);
+            border-radius: 5px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .photo-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .photo-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: filter var(--transition-speed);
+        }
+        .photo-item:hover img {
+            filter: brightness(0.9);
+        }
+        .photo-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 20px;
+            text-align: left;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .photo-item:hover .photo-description {
+            transform: translateY(0);
+        }
+        .photo-description h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1em;
+            margin: 0 0 5px;
+            color: var(--primary-black);
+        }
+        .photo-description p {
+            font-size: 0.85em;
+            margin: 0;
+            color: var(--text-color-light);
+        }
 
-        /* --- Estilos del Modal (pop-up) (sin cambios) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            max-width: 90%;
-            max-height: 90%;
-            background: var(--primary-white);
-            border-radius: 8px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            animation-name: animatescale;
-            animation-duration: 0.4s;
-        }
-        @keyframes animatescale {
-            from { transform: scale(0.7); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .modal-img {
-            max-width: 60%;
-            height: auto;
-            object-fit: contain;
-        }
-        .modal-description {
-            max-width: 40%;
-            padding: 30px;
-            text-align: left;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .modal-description h3 {
-            font-family: 'Libre Baskerville', serif;
-            margin: 0 0 15px;
-            color: var(--primary-black);
-            font-size: 1.8em;
-        }
-        .modal-description p {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            font-size: 1em;
-            color: var(--text-color-light);
-        }
-        .close {
-            color: var(--primary-white);
-            font-size: 50px;
-            font-weight: bold;
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            cursor: pointer;
-            transition: color var(--transition-speed);
-            text-shadow: 0 0 10px var(--primary-black);
-            z-index: 1001;
-        }
-        .close:hover,
-        .close:focus {
-            color: var(--accent-pink);
-            text-decoration: none;
-        }
-        
-        /* --- Footer (sin cambios) --- */
-        .footer {
-            background-color: var(--primary-gray);
-            color: var(--text-color-light);
-            padding: 30px 20px;
-            font-size: 0.9em;
-            border-top: 1px solid #eee;
-        }
-        .footer p {
-            margin: 5px 0;
-        }
-        .footer a {
-            color: var(--text-color-light);
-            text-decoration: none;
-            transition: color var(--transition-speed);
-        }
-        .footer a:hover {
-            color: var(--accent-pink);
-        }
+        /* --- Estilos del Modal (pop-up) (sin cambios) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--primary-white);
+            border-radius: 8px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation-name: animatescale;
+            animation-duration: 0.4s;
+        }
+        @keyframes animatescale {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-img {
+            max-width: 60%;
+            height: auto;
+            object-fit: contain;
+        }
+        .modal-description {
+            max-width: 40%;
+            padding: 30px;
+            text-align: left;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .modal-description h3 {
+            font-family: 'Libre Baskerville', serif;
+            margin: 0 0 15px;
+            color: var(--primary-black);
+            font-size: 1.8em;
+        }
+        .modal-description p {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            font-size: 1em;
+            color: var(--text-color-light);
+        }
+        .close {
+            color: var(--primary-white);
+            font-size: 50px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            transition: color var(--transition-speed);
+            text-shadow: 0 0 10px var(--primary-black);
+            z-index: 1001;
+        }
+        .close:hover,
+        .close:focus {
+            color: var(--accent-pink);
+            text-decoration: none;
+        }
+        
+        /* --- Footer (sin cambios) --- */
+        .footer {
+            background-color: var(--primary-gray);
+            color: var(--text-color-light);
+            padding: 30px 20px;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer a {
+            color: var(--text-color-light);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+        .footer a:hover {
+            color: var(--accent-pink);
+        }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .modal-content {
-                flex-direction: column;
-                max-width: 95%;
-            }
-            .modal-img {
-                max-width: 100%;
-                max-height: 50vh;
-            }
-            .modal-description {
-                max-width: 100%;
-                padding: 20px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            /* En móviles, la cabecera vuelve a la alineación vertical centrada */
-            .logo-brand-container {
+        /* Responsive Design (sin cambios) */
+        @media (max-width: 900px) {
+            .modal-content {
                 flex-direction: column;
-                gap: 10px;
+                max-width: 95%;
             }
-            .site-title {
-                font-size: 3em;
-            }
-            .logo-text-container {
-                text-align: center; /* Centra el texto debajo del logo en móviles */
-            }
-            .header {
-                padding: 20px;
-            }
-            .contact-info {
-                margin: 30px auto;
-                padding: 30px;
-            }
-            .contact-item {
-                max-width: 100%;
-            }
-            .photo-gallery {
-                grid-template-columns: 1fr;
-            }
-            .photo-item img {
-                height: 300px;
-            }
-        }
-    </style>
+            .modal-img {
+                max-width: 100%;
+                max-height: 50vh;
+            }
+            .modal-description {
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 3em;
+            }
+            .header {
+                padding: 20px;
+            }
+            .contact-info {
+                margin: 30px auto;
+                padding: 30px;
+            }
+            .contact-item {
+                max-width: 100%;
+            }
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            .photo-item img {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo-brand-container"> 
-            <img src="logo_recortado.png" alt="D.atelier Logo" class="main-logo-image">
-            <div class="logo-text-container">
-                <h1 class="site-title">D.atelier</h1>
-                <p class="tagline">Elegancia, exclusividad y diseño de alta costura</p>
-            </div>
+    <header class="header">
+        <img src="logo_recortado.png" alt="D.atelier Logo" class="main-logo-image">
+        <div class="logo-text-container">
+            <h1 class="site-title">D.atelier</h1>
+            <p class="tagline">Elegancia, exclusividad y diseño de alta costura</p>
         </div>
-            </header>
+    </header>
 
-    <main>
-        <section class="contact-info">
-            <h2>Contactanos para diseñar tu sueño</h2>
-            <p>¿Tenés alguna consulta o estás interesada en un diseño personalizado?</p>
-            
-            <div style="margin-top: 20px;">
-                <p class="contact-item"><i class="fas fa-phone-alt"></i> Teléfono: 2345 566441</p>
-                <p class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
-                <p class="contact-item"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
-            </div>
-            
-            <p class="personal-message">
-                <i class="fas fa-heart" style="margin-right: 8px;"></i> ¡Hola! Soy Denise, fundadora de D.atelier. Espero tu mensaje para que juntas trabajemos en la creación de tu vestido soñado.
-            </p>
-        </section>
+    <main>
+        <section class="contact-info">
+            <h2>Contactanos para diseñar tu sueño</h2>
+            <p>¿Tenés alguna consulta o estás interesada en un diseño personalizado?</p>
+            
+            <div style="margin-top: 20px;">
+                <p class="contact-item"><i class="fas fa-phone-alt"></i> Teléfono: 2345 566441</p>
+                <p class="contact-item"><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/+5492345566441" target="_blank">+54 9 2345 566441</a></p>
+                <p class="contact-item"><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/d.atelier_25" target="_blank">@d.atelier_25</a></p>
+            </div>
+            
+            <p class="personal-message">
+                <i class="fas fa-heart" style="margin-right: 8px;"></i> ¡Hola! Soy Denise, fundadora de D.atelier. Espero tu mensaje para que juntas trabajemos en la creación de tu vestido soñado.
+            </p>
+        </section>
 
-        <h2 class="section-title">Nuestra Galería de Diseños</h2>
+        <h2 class="section-title">Nuestra Galería de Diseños</h2>
 
-        <div class="gallery-container">
-            <div class="photo-gallery">
-                
-                <div class="photo-item">
-                    <img src="vestido.elina.jpg" data-title="El Vestido de Tus Sueños Hecho Realidad" data-description="En D.atelier, cada puntada cuenta una historia. Este diseño está pensado para la noche de tus 15, un momento mágico donde la elegancia y la fantasía se unen para crear tu vestido ideal. Permítenos hacer realidad el sueño de tu vestido perfecto." alt="Vestido de Quinceañera Elegante Elina">
-                    <div class="photo-description">
-                        <h3>Vestido de Quince</h3>
-                        <p>Elegancia y fantasía en un diseño único.</p>
-                    </div>
-                </div>
+        <div class="gallery-container">
+            <div class="photo-gallery">
+                
+                <div class="photo-item">
+                    <img src="vestido.elina.jpg" data-title="El Vestido de Tus Sueños Hecho Realidad" data-description="En D.atelier, cada puntada cuenta una historia. Este diseño está pensado para la noche de tus 15, un momento mágico donde la elegancia y la fantasía se unen para crear tu vestido ideal. Permítenos hacer realidad el sueño de tu vestido perfecto." alt="Vestido de Quinceañera Elegante Elina">
+                    <div class="photo-description">
+                        <h3>Vestido de Quince</h3>
+                        <p>Elegancia y fantasía en un diseño único.</p>
+                    </div>
+                </div>
 
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/600x400/FFC0CB/000000?text=Vestido+de+Noche+Clásico" data-title="Elegancia Atemporal" data-description="Vestido largo ideal para galas y casamientos. Confeccionado con tejido satinado de alta calidad y detalles sutiles en encaje francés para un toque clásico y distinguido." alt="Vestido de Noche Clásico">
-                    <div class="photo-description">
-                        <h3>Clásico de Gala</h3>
-                        <p>Diseño largo con tejido satinado y encaje.</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/600x400/E6E6FA/000000?text=Vestido+de+Cocktail+Moderno" data-title="Estilo Urbano Chic" data-description="Perfecto para eventos de día o noche. Presenta un corte moderno con volados dinámicos, creando movimiento y una espalda descubierta que añade un detalle sensual y sofisticado." alt="Vestido de Cocktail Moderno">
-                    <div class="photo-description">
-                        <h3>Cocktail Moderno</h3>
-                        <p>Volados, espalda descubierta y estilo chic.</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/600x400/DDA0DD/FFFFFF?text=Vestido+de+Fiesta+Corto" data-title="Alegría y Movimiento" data-description="Un vestido corto, vibrante y juvenil, completamente cubierto de lentejuelas. Ideal para cumpleaños, despedidas o cualquier celebración que exija un look festivo y lleno de brillo." alt="Vestido de Fiesta Corto">
-                    <div class="photo-description">
-                        <h3>Fiesta con Lentejuelas</h3>
-                        <p>Look festivo y juvenil con brillo garantizado.</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/600x400/FFB6C1/000000?text=Vestido+de+Graduación" data-title="Brillo de Graduación" data-description="Diseño audaz con transparencias estratégicas y delicados apliques de pedrería. El vestido perfecto para destacar en tu noche especial de graduación." alt="Vestido de Graduación">
-                    <div class="photo-description">
-                        <h3>Diseño para Graduación</h3>
-                        <p>Transparencias y apliques para una noche única.</p>
-                    </div>
-                </div>
-                
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/600x400/FF69B4/FFFFFF?text=Vestido+de+Novia+Civil" data-title="Sencillez Nupcial" data-description="Vestido ideal para ceremonias civiles. Su diseño minimalista es elegante, cómodo y está lleno de encanto, perfecto para la novia que busca sofisticación sin excesos." alt="Vestido de Novia Civil">
-                    <div class="photo-description">
-                        <h3>Novia Civil Minimalista</h3>
-                        <p>Elegante, cómodo y lleno de encanto nupcial.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/FFC0CB/000000?text=Vestido+de+Noche+Clásico" data-title="Elegancia Atemporal" data-description="Vestido largo ideal para galas y casamientos. Confeccionado con tejido satinado de alta calidad y detalles sutiles en encaje francés para un toque clásico y distinguido." alt="Vestido de Noche Clásico">
+                    <div class="photo-description">
+                        <h3>Clásico de Gala</h3>
+                        <p>Diseño largo con tejido satinado y encaje.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/E6E6FA/000000?text=Vestido+de+Cocktail+Moderno" data-title="Estilo Urbano Chic" data-description="Perfecto para eventos de día o noche. Presenta un corte moderno con volados dinámicos, creando movimiento y una espalda descubierta que añade un detalle sensual y sofisticado." alt="Vestido de Cocktail Moderno">
+                    <div class="photo-description">
+                        <h3>Cocktail Moderno</h3>
+                        <p>Volados, espalda descubierta y estilo chic.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/DDA0DD/FFFFFF?text=Vestido+de+Fiesta+Corto" data-title="Alegría y Movimiento" data-description="Un vestido corto, vibrante y juvenil, completamente cubierto de lentejuelas. Ideal para cumpleaños, despedidas o cualquier celebración que exija un look festivo y lleno de brillo." alt="Vestido de Fiesta Corto">
+                    <div class="photo-description">
+                        <h3>Fiesta con Lentejuelas</h3>
+                        <p>Look festivo y juvenil con brillo garantizado.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/FFB6C1/000000?text=Vestido+de+Graduación" data-title="Brillo de Graduación" data-description="Diseño audaz con transparencias estratégicas y delicados apliques de pedrería. El vestido perfecto para destacar en tu noche especial de graduación." alt="Vestido de Graduación">
+                    <div class="photo-description">
+                        <h3>Diseño para Graduación</h3>
+                        <p>Transparencias y apliques para una noche única.</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/FF69B4/FFFFFF?text=Vestido+de+Novia+Civil" data-title="Sencillez Nupcial" data-description="Vestido ideal para ceremonias civiles. Su diseño minimalista es elegante, cómodo y está lleno de encanto, perfecto para la novia que busca sofisticación sin excesos." alt="Vestido de Novia Civil">
+                    <div class="photo-description">
+                        <h3>Novia Civil Minimalista</h3>
+                        <p>Elegante, cómodo y lleno de encanto nupcial.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <div class="modal-content">
-            <img class="modal-img" id="modalImage">
-            <div class="modal-description">
-                <h3 id="modalTitle"></h3>
-                <p id="modalDescription"></p>
-            </div>
-        </div>
-    </div>
-    
-    <footer class="footer">
-        <p>&copy; 2025 D.atelier. Todos los derechos reservados.</p>
-        <p>Alta Costura y Diseños a Medida.</p>
-        <p>Seguinos en <a href="https://www.instagram.com/d.atelier_25" target="_blank">Instagram</a></p>
-    </footer>
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImage">
+            <div class="modal-description">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2025 D.atelier. Todos los derechos reservados.</p>
+        <p>Alta Costura y Diseños a Medida.</p>
+        <p>Seguinos en <a href="https://www.instagram.com/d.atelier_25" target="_blank">Instagram</a></p>
+    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDescription = document.getElementById('modalDescription');
-            const closeBtn = document.querySelector('.close');
-            const galleryItems = document.querySelectorAll('.photo-item img');
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const closeBtn = document.querySelector('.close');
+            const galleryItems = document.querySelectorAll('.photo-item img');
 
-            galleryItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    modal.style.display = 'flex';
-                    modalImg.src = item.src;
-                    modalTitle.textContent = item.dataset.title;
-                    modalDescription.textContent = item.dataset.description;
-                });
-            });
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                    modalImg.src = item.src;
+                    modalTitle.textContent = item.dataset.title;
+                    modalDescription.textContent = item.dataset.description;
+                });
+            });
 
-            closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
 
-            window.addEventListener('click', (event) => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-    </script>
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
