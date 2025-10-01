@@ -196,15 +196,15 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        /* Modificación para el slider de imágenes */
-        .photo-item img {
+        /* Imágenes estáticas de la galería */
+        .photo-item > img { /* Selecciona solo las img directas de photo-item, no las del slider */
             width: 100%;
             height: 400px;
             object-fit: cover;
             display: block;
             transition: filter var(--transition-speed);
         }
-        .photo-item:hover img {
+        .photo-item:hover > img {
             filter: brightness(0.9);
         }
         .photo-description {
@@ -233,23 +233,23 @@
             color: var(--text-color-light);
         }
 
-        /* ESTILOS ESPECÍFICOS DEL SLIDER DENTRO DEL photo-item */
+        /* ESTILOS ESPECÍFICOS DEL SLIDER DENTRO DEL photo-item de la GALERÍA */
         .slider-wrapper {
             position: relative;
             width: 100%;
             height: 400px; /* Misma altura que el resto de las imágenes */
-            overflow: hidden; /* Oculta las imágenes que no están activas */
-            border-radius: 5px 5px 0 0; /* Bordes redondeados en la parte superior */
+            overflow: hidden; 
+            border-radius: 5px 5px 0 0; 
         }
 
         .slider-container {
             display: flex;
             height: 100%;
-            transition: transform 0.5s ease-in-out; /* Suaviza el deslizamiento */
+            transition: transform 0.5s ease-in-out; 
         }
 
         .slide {
-            min-width: 100%; /* Cada slide ocupa el 100% del ancho del contenedor */
+            min-width: 100%; 
             height: 100%;
             object-fit: cover;
             display: block;
@@ -266,7 +266,7 @@
             cursor: pointer;
             font-size: 20px;
             z-index: 10;
-            border-radius: 50%; /* Botones circulares */
+            border-radius: 50%; 
             transition: background-color var(--transition-speed);
         }
 
@@ -283,7 +283,7 @@
         }
 
 
-        /* --- Estilos del Modal (pop-up) (sin cambios) --- */
+        /* --- Estilos del Modal (pop-up) --- */
         .modal {
             display: none;
             position: fixed;
@@ -313,13 +313,64 @@
             from { transform: scale(0.7); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
-        .modal-img {
-            max-width: 60%;
+        
+        /* Contenedor de la imagen/slider en el modal */
+        .modal-image-wrapper {
+            position: relative;
+            max-width: 60%; /* Ocupa el 60% del modal */
             height: auto;
-            object-fit: contain;
+            flex-grow: 1; /* Permite que crezca y ocupe el espacio */
+            overflow: hidden; /* Importante para el slider */
+            display: flex; /* Para centrar el contenido del slider si es necesario */
+            align-items: center; /* Centrar verticalmente */
         }
+
+        /* Estilos para el slider dentro del modal */
+        .modal-slider-container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .modal-slide {
+            min-width: 100%;
+            height: auto; /* Ajusta la altura automáticamente */
+            object-fit: contain; /* Para que la imagen se ajuste sin cortarse */
+            display: block;
+            max-height: 100%; /* Asegura que no se desborde verticalmente */
+        }
+        
+        .modal-slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+            border-radius: 50%; 
+            transition: background-color var(--transition-speed);
+        }
+
+        .modal-slider-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-slider-button.prev {
+            left: 10px;
+        }
+
+        .modal-slider-button.next {
+            right: 10px;
+        }
+
+
         .modal-description {
-            max-width: 40%;
+            max-width: 40%; /* Ocupa el 40% del modal */
             padding: 30px;
             text-align: left;
             overflow-y: auto;
@@ -383,7 +434,7 @@
                 flex-direction: column;
                 max-width: 95%;
             }
-            .modal-img {
+            .modal-image-wrapper { /* Ajuste para el wrapper de imagen/slider en modal */
                 max-width: 100%;
                 max-height: 50vh;
             }
@@ -417,10 +468,14 @@
             .photo-gallery {
                 grid-template-columns: 1fr;
             }
-            .photo-item img, .slider-wrapper { /* También ajustar la altura del slider en móviles */
+            .photo-item img, .slider-wrapper { 
                 height: 300px;
             }
             .slider-button {
+                padding: 8px 12px;
+                font-size: 18px;
+            }
+            .modal-slider-button {
                 padding: 8px 12px;
                 font-size: 18px;
             }
@@ -473,8 +528,8 @@
 
                 <div class="photo-item photo-item-slider" 
                     data-title="Vestido de Fiesta 'Estrella Nocturna'" 
-                    data-description="Un diseño exclusivo de fiesta con múltiples vistas para apreciar todos los detalles. Brillo, elegancia y un ajuste perfecto para cualquier evento especial.">
-                    
+                    data-description="Un diseño exclusivo de fiesta con múltiples vistas para apreciar todos los detalles. Brillo, elegancia y un ajuste perfecto para cualquier evento especial."
+                    data-images="vestido 1 de frente.png,vestido 1 de izq.png,vestido 1 de der.png"> 
                     <div class="slider-wrapper">
                         <div class="slider-container">
                             <img src="vestido 1 de frente.png" alt="Vestido de Fiesta (vista frontal)" class="slide">
@@ -537,7 +592,13 @@
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <div class="modal-content">
-            <img class="modal-img" id="modalImage">
+            <div class="modal-image-wrapper">
+                <div class="modal-slider-container" id="modalSliderContainer">
+                    </div>
+                <button class="modal-slider-button prev" id="modalSliderPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="modal-slider-button next" id="modalSliderNextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
             <div class="modal-description">
                 <h3 id="modalTitle"></h3>
                 <p id="modalDescription"></p>
@@ -554,78 +615,150 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
+            const modalImageWrapper = document.querySelector('.modal-image-wrapper');
+            const modalSliderContainer = document.getElementById('modalSliderContainer');
+            const modalSliderPrevBtn = document.getElementById('modalSliderPrevBtn');
+            const modalSliderNextBtn = document.getElementById('modalSliderNextBtn');
             const modalTitle = document.getElementById('modalTitle');
             const modalDescription = document.getElementById('modalDescription');
             const closeBtn = document.querySelector('.close');
-            const galleryItems = document.querySelectorAll('.photo-item:not(.photo-item-slider) img'); // Excluir las imágenes del slider
-            const sliderPhotoItems = document.querySelectorAll('.photo-item-slider'); // Seleccionar ítems con slider
+
+            let currentModalSlideIndex = 0;
+            let modalSlides = [];
+
+            // Función para inicializar el slider del modal
+            function initModalSlider(images) {
+                modalSliderContainer.innerHTML = ''; // Limpiar slides anteriores
+                modalSlides = [];
+                images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.classList.add('modal-slide');
+                    modalSliderContainer.appendChild(img);
+                    modalSlides.push(img);
+                });
+                currentModalSlideIndex = 0; // Siempre empezar por la primera imagen
+                updateModalSlider();
+                
+                // Mostrar/Ocultar botones del slider en modal
+                if (images.length > 1) {
+                    modalSliderPrevBtn.style.display = 'block';
+                    modalSliderNextBtn.style.display = 'block';
+                } else {
+                    modalSliderPrevBtn.style.display = 'none';
+                    modalSliderNextBtn.style.display = 'none';
+                }
+            }
+
+            function updateModalSlider() {
+                if (modalSlides.length > 0) {
+                    modalSliderContainer.style.transform = `translateX(-${currentModalSlideIndex * 100}%)`;
+                }
+            }
+
+            modalSliderPrevBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evitar que el clic cierre el modal
+                if (modalSlides.length > 0) {
+                    currentModalSlideIndex = (currentModalSlideIndex === 0) ? modalSlides.length - 1 : currentModalSlideIndex - 1;
+                    updateModalSlider();
+                }
+            });
+
+            modalSliderNextBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evitar que el clic cierre el modal
+                if (modalSlides.length > 0) {
+                    currentModalSlideIndex = (currentModalSlideIndex === modalSlides.length - 1) ? 0 : currentModalSlideIndex + 1;
+                    updateModalSlider();
+                }
+            });
 
 
-            // Manejar la apertura del modal para ítems de galería normales
-            galleryItems.forEach(item => {
+            // --- Manejo de la galería y apertura del modal ---
+
+            // Para ítems de galería normales (sin slider)
+            document.querySelectorAll('.photo-item:not(.photo-item-slider) img').forEach(item => {
                 item.addEventListener('click', () => {
                     modal.style.display = 'flex';
-                    modalImg.src = item.src;
                     modalTitle.textContent = item.dataset.title;
                     modalDescription.textContent = item.dataset.description;
+                    
+                    // Ocultar slider del modal y mostrar solo una imagen
+                    modalImageWrapper.classList.remove('has-slider'); // Quitar clase si estaba de un modal anterior
+                    modalSliderContainer.innerHTML = ''; // Limpiar el slider
+                    modalSliderPrevBtn.style.display = 'none';
+                    modalSliderNextBtn.style.display = 'none';
+
+                    // Crear y mostrar una sola imagen dentro del wrapper del modal
+                    const singleImg = document.createElement('img');
+                    singleImg.src = item.src;
+                    singleImg.classList.add('modal-img'); // Antigua clase de imagen única
+                    modalImageWrapper.appendChild(singleImg);
                 });
             });
 
-            // Manejar la apertura del modal para ítems de galería con slider
-            sliderPhotoItems.forEach(sliderItem => {
-                const mainImage = sliderItem.querySelector('.slide'); // La primera imagen es la principal
+            // Para ítems de galería con slider
+            document.querySelectorAll('.photo-item-slider').forEach(sliderItem => {
+                const gallerySliderContainer = sliderItem.querySelector('.slider-container');
+                const gallerySlides = sliderItem.querySelectorAll('.slide');
+                const galleryPrevButton = sliderItem.querySelector('.slider-button.prev');
+                const galleryNextButton = sliderItem.querySelector('.slider-button.next');
+                let currentGallerySlideIndex = 0;
+
+                // Inicializar slider de la galería
+                function updateGallerySlider() {
+                    gallerySliderContainer.style.transform = `translateX(-${currentGallerySlideIndex * 100}%)`;
+                }
+
+                galleryPrevButton.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevenir la apertura del modal al hacer clic en las flechas
+                    currentGallerySlideIndex = (currentGallerySlideIndex === 0) ? gallerySlides.length - 1 : currentGallerySlideIndex - 1;
+                    updateGallerySlider();
+                });
+
+                galleryNextButton.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevenir la apertura del modal al hacer clic en las flechas
+                    currentGallerySlideIndex = (currentGallerySlideIndex === gallerySlides.length - 1) ? 0 : currentGallerySlideIndex + 1;
+                    updateGallerySlider();
+                });
+                updateGallerySlider(); // Inicializar vista
+
+                // Abrir modal al hacer clic en el área del slider (no en los botones)
                 sliderItem.addEventListener('click', (event) => {
-                    // Prevenir que el clic en los botones del slider abra el modal
-                    if (!event.target.closest('.slider-button')) {
+                    if (!event.target.closest('.slider-button')) { // Asegurarse de que no fue un botón del slider
                         modal.style.display = 'flex';
-                        modalImg.src = mainImage.src; // Muestra la primera imagen del slider en el modal
+                        modalImageWrapper.classList.add('has-slider'); // Indicar que este modal tiene slider
                         modalTitle.textContent = sliderItem.dataset.title;
                         modalDescription.textContent = sliderItem.dataset.description;
+                        
+                        // Eliminar cualquier imagen única que pueda haberse añadido anteriormente
+                        const oldSingleImg = modalImageWrapper.querySelector('.modal-img');
+                        if (oldSingleImg) oldSingleImg.remove();
+
+                        const images = sliderItem.dataset.images.split(',');
+                        initModalSlider(images);
                     }
                 });
             });
 
 
+            // Cerrar modal
             closeBtn.addEventListener('click', () => {
                 modal.style.display = 'none';
+                 // Limpiar el slider del modal al cerrar
+                modalSliderContainer.innerHTML = '';
+                modalImageWrapper.classList.remove('has-slider'); // Limpiar la clase
             });
 
             window.addEventListener('click', (event) => {
                 if (event.target === modal) {
                     modal.style.display = 'none';
+                    // Limpiar el slider del modal al cerrar
+                    modalSliderContainer.innerHTML = '';
+                    modalImageWrapper.classList.remove('has-slider'); // Limpiar la clase
                 }
-            });
-
-            // Lógica del Slider/Carrusel
-            document.querySelectorAll('.photo-item-slider').forEach(sliderItem => {
-                const sliderContainer = sliderItem.querySelector('.slider-container');
-                const slides = sliderItem.querySelectorAll('.slide');
-                const prevButton = sliderItem.querySelector('.slider-button.prev');
-                const nextButton = sliderItem.querySelector('.slider-button.next');
-                let currentIndex = 0;
-
-                function updateSlider() {
-                    sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-                }
-
-                prevButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-                    updateSlider();
-                });
-
-                nextButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-                    updateSlider();
-                });
-
-                // Inicializar el slider en la primera imagen
-                updateSlider();
             });
         });
     </script>
 
 </body>
 </html>
-
-
